@@ -10,11 +10,6 @@ jobs:
           keys:
             - v4-hello
       - run: /bin/bash -c '([[ -f x.txt ]] && cat x.txt) || true'
-      - run: /bin/bash -c '[[ -f x.txt ]] || echo "${CIRCLE_JOB}" > x.txt'
-      - save_cache:
-          key: v4-hello-{{ checksum "x.txt" }}
-          paths:
-            - x.txt
 
 workflows:
   hello-workflow:
