@@ -15,7 +15,6 @@ jobs:
           key: v3-hello-{{ checksum "xxx.txt" }}
           paths:
             - xxx.txt
-      - run: cat xxx.txt
 
 workflows:
   hello-workflow:
