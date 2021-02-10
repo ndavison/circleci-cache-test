@@ -4,7 +4,7 @@ version: 2.1
 jobs:
   hello:
     docker:
-      - image: ubuntu/latest
+      - image: ubuntu:latest
     steps:
       - restore_cache:
           keys:
