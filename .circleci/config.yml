@@ -8,10 +8,10 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - hello
+            - v1-hello
       - run: /bin/bash -c '[[ -f hello.txt ]] || echo "${CIRCLE_JOB}" > hello.txt'
       - save_cache:
-          key: hello-{{ checksum "hello.txt" }}
+          key: v1-hello-{{ checksum "hello.txt" }}
           paths:
             - hello.txt
       - run: cat hello.txt
