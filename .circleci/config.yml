@@ -3,15 +3,15 @@ version: 2.1
 workflows:
   hello-workflow:
     jobs:
-      hello:
-        executor: default
-        steps:
-          - restore_cache:
-              keys:
-                - hello-{{ checksum "hello.txt" }}
-                - hello-
-          - run: echo "hello" > hello.txt
-          - save_cache:
-              key: hello-{{ checksum "hello.txt" }}
-              paths: hello.txt
-          - run: cat hello.txt
+      - hello:
+          executor: default
+          steps:
+            - restore_cache:
+                keys:
+                  - hello-{{ checksum "hello.txt" }}
+                  - hello
+            - run: echo "hello" > hello.txt
+            - save_cache:
+                key: hello-{{ checksum "hello.txt" }}
+                paths: hello.txt
+            - run: cat hello.txt
