@@ -8,14 +8,14 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - v2-hello
-      - run: /bin/bash -c '([[ -f hello.txt ]] && cat hello.txt) || true'
-      - run: /bin/bash -c '[[ -f hello.txt ]] || echo "${CIRCLE_JOB}" > hello.txt'
+            - v3-hello
+      - run: /bin/bash -c '([[ -f xxx.txt ]] && cat xxx.txt) || true'
+      - run: /bin/bash -c '[[ -f xxx.txt ]] || echo "${CIRCLE_JOB}" > xxx.txt'
       - save_cache:
-          key: v2-hello-{{ checksum "hello.txt" }}
+          key: v3-hello-{{ checksum "xxx.txt" }}
           paths:
-            - hello.txt
-      - run: cat hello.txt
+            - xxx.txt
+      - run: cat xxx.txt
 
 workflows:
   hello-workflow:
