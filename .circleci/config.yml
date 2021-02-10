@@ -8,8 +8,7 @@ jobs:
     steps:
       - restore_cache:
           keys:
-            - hello-{{ checksum "hello.txt" }}
-            - hello-
+            - hello
       - run: echo "hello" > hello.txt
       - save_cache:
           key: hello-{{ checksum "hello.txt" }}
