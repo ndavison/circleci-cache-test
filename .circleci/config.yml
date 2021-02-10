@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           keys:
             - v2-hello
-      - run: /bin/bash -c '[[ -f hello.txt ]] && cat hello.txt'
+      - run: /bin/bash -c '([[ -f hello.txt ]] && cat hello.txt) || true'
       - run: /bin/bash -c '[[ -f hello.txt ]] || echo "${CIRCLE_JOB}" > hello.txt'
       - save_cache:
           key: v2-hello-{{ checksum "hello.txt" }}
