@@ -9,7 +9,7 @@ jobs:
       - restore_cache:
           keys:
             - hello
-      - run: /bin/bash -c '[ -f hello.txt] || echo "${CIRCLE_JOB}" > hello.txt'
+      - run: /bin/bash -c '[[ -f hello.txt ]] || echo "${CIRCLE_JOB}" > hello.txt'
       - save_cache:
           key: hello-{{ checksum "hello.txt" }}
           paths:
